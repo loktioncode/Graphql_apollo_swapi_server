@@ -1,6 +1,6 @@
-# Star Wars
+# Wrapping Star Wars REST API with Graphql
 
-> React, GraphQL, Apollo app that uses the Star Wars API to display start wars charecters
+> React, GraphQL, Apollo app that uses the Star Wars API to display start wars characters
 
 ## Quick Start
 
@@ -16,7 +16,7 @@ cd client && npm run start
 
 ```
 
-## Simple query
+## Simple gql query
 
 ```bash
 
