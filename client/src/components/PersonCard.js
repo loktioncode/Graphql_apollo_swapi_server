@@ -28,7 +28,7 @@ const PersonCard = ({ name, gender, mass, homeworld, height }) => (
   <Card.Content extra>
     <Icon name="money bill alternate outline" />
     
-    <Button color="green" inverted floated="right">
+    <Button color="yellow" inverted floated="right">
       View Charecter
     </Button>
   </Card.Content>

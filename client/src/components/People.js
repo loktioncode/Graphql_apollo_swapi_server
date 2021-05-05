@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Query} from "react-apollo";
 import gql from "graphql-tag";
 import { Dimmer, Loader, Segment } from "semantic-ui-react";
@@ -20,7 +20,9 @@ const query = gql`
 
 
 
-const People = ({ name }) => (
+function People  ({ name })  {
+  
+  
   <div>
     
     <div style={{
@@ -55,11 +57,11 @@ const People = ({ name }) => (
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
-  justifyContent: "space-around"
+  justifyContent: "space-evenly"
 }}>
     {
         Array.from({ length: 10 }, (_, k) => (
-          <CircularNumber pagenum ={k} size={'big'}/>
+          <button class="ui inverted yellow button" onClick={() => {setPage(k); console.log(page)}}>{k}</button>
         ))
       }
 
@@ -67,6 +69,6 @@ const People = ({ name }) => (
   </div>
  
  
-);
+}
 
 export default People;
