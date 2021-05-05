@@ -7,7 +7,7 @@ const resolvers = {
     Query:{
       getAllPeople: (_, { page }) => {
         if (page){
-          console.log("ALL PEOPLE PER PAGE");
+          
          return fetch(`${BASE_URL}/people/?page=${page}`).then(res => res.json()).then(json => json.results)
         }else{
           console.log("ALL PEOPLE");

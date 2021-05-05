@@ -1,21 +1,21 @@
 import React from 'react';
+import LaunchList from './components/LaunchList';
+import LaunchProfile from './components/LaunchProfile';
+
 import './App.css';
 
-function StarWarsApp() {
+const App = () => {
+  const [id, setId] = React.useState(42);
+  const handleIdChange = React.useCallback(newId => {
+    setId(newId);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React TypeScript
-        </a>
-      </header>
+      <LaunchList handleIdChange={handleIdChange} />
+      <LaunchProfile id={id} />
     </div>
   );
-}
+};
 
-export default StarWarsApp;
+export default App;
