@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
-import { Query, ApolloProvider } from "react-apollo";
+import { Query} from "react-apollo";
 import gql from "graphql-tag";
 import { Dimmer, Loader, Segment } from "semantic-ui-react";
-import Card from "./Card";
+import PersonCard from "./PersonCard";
+import CircularNumber from "./Pagination";
 
 const query = gql`
  {
@@ -17,9 +18,21 @@ const query = gql`
 
 `;
 
+
+
 const People = ({ name }) => (
-  <Fragment>
-    <h1>Star Wars People</h1>
+  <div>
+    
+    <div style={{
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  flexWrap: "wrap",
+  justifyContent: "space-around"
+}} >
+    <Fragment >
+      
+  
     <Query query={query}>
       {({ loading, error, data }) => {
         if (loading)
@@ -29,12 +42,31 @@ const People = ({ name }) => (
             </Dimmer>
           );
         if (error) return <p>Error :(</p>;
-        return data.allFilms.map(props => (
-          <Card {...props} key={props.episodeId} />
+        return data.getAllPeople.map(props => (
+          <PersonCard {...props} key={props.name} />
         ));
       }}
     </Query>
   </Fragment>
+
+ </div>
+
+ <div style={{
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "space-around"
+}}>
+    {
+        Array.from({ length: 10 }, (_, k) => (
+          <CircularNumber pagenum ={k} size={'big'}/>
+        ))
+      }
+
+    </div>
+  </div>
+ 
+ 
 );
 
 export default People;
